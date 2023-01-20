@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Factories;
 
 use App\Domain\Models\User;
+use Cappuccino\Id;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -15,6 +16,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => Id::make(),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),

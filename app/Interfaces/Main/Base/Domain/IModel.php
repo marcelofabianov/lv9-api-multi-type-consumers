@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Interfaces\Main\Base\Model;
+namespace App\Interfaces\Main\Base\Domain;
 
 interface IModel
 {

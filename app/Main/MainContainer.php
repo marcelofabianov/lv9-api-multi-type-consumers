@@ -30,6 +30,7 @@ class MainContainer
             ->middleware([
                 'api',
                 'auth:api',
+                'json.response',
             ])->group(function () {
                 // Default Route API
                 Route::get('/', fn () => response()->json([
