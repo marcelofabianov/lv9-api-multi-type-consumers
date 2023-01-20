@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Models\User;
+use App\Domain\Models\User;
 use Laravel\Passport\Passport;
-
-use function Pest\Laravel\get;
-
 use Symfony\Component\HttpFoundation\Response;
+use function Pest\Laravel\get;
 
 test('Visiting the API default private route', function () {
     $user = User::factory()->createOne();

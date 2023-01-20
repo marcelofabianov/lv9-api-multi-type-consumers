@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Domain\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\ClientRepository;
 
