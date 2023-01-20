@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Database\Seeders;
+namespace App\Domain\Seeders;
 
 use App\Domain\Models\User;
+use Cappuccino\Id;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\ClientRepository;
 
@@ -13,7 +14,7 @@ class FakeSeeder
     public function run(): void
     {
         $user = User::factory()->createOne([
-            'id' => 'ef3675b8-7df2-4024-9952-7618a2170047',
+            'id' => Id::make(),
             'email' => 'me@fake.com',
             'name' => fake()->name,
         ]);

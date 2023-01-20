@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Main;
 
+use App\Domain\DomainContainer;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,7 +12,7 @@ class MainContainer
 {
     public static function register(): void
     {
-        //
+        DomainContainer::register();
     }
 
     public static function httpRoutes(): void
