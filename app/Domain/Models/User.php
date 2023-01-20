@@ -22,6 +22,8 @@ class User extends Authenticatable implements IUserModel
     use SoftDeletes;
     use Notifiable;
 
+    protected $table = 'users';
+
     protected $keyType = 'string';
 
     protected $fillable = [
