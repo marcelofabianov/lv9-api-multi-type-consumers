@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3177b75a3d6f3d5f3de7d87d57691cee",
+    "content-hash": "e055dc94ca723c2802f67671e68754a9",
     "packages": [
         {
             "name": "brick/math",
@@ -560,6 +560,57 @@
                 "source": "https://github.com/firebase/php-jwt/tree/v6.3.2"
             },
             "time": "2022-12-19T17:10:46+00:00"
+        },
+        {
+            "name": "foroco/php-browser-detection",
+            "version": "v2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/foroco/php-browser-detection.git",
+                "reference": "8c1714543b85f56d6eec19bb8263deb80922318d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/foroco/php-browser-detection/zipball/8c1714543b85f56d6eec19bb8263deb80922318d",
+                "reference": "8c1714543b85f56d6eec19bb8263deb80922318d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/BrowserDetection.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Murugov",
+                    "email": "murugov@gmail.com",
+                    "homepage": "https://github.com/foroco/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Ultra fast PHP library to detect browser, OS, platform and device type by User-Agent parsing.",
+            "homepage": "https://github.com/foroco/php-browser-detection",
+            "keywords": [
+                "browser",
+                "detection",
+                "environment",
+                "php",
+                "user-agent",
+                "useragent"
+            ],
+            "support": {
+                "issues": "https://github.com/foroco/php-browser-detection/issues",
+                "source": "https://github.com/foroco/php-browser-detection/tree/v2.3"
+            },
+            "time": "2021-09-03T15:02:01+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -2204,6 +2255,58 @@
                 }
             ],
             "time": "2021-06-28T04:27:21+00:00"
+        },
+        {
+            "name": "marcelofabianov/cappuccino",
+            "version": "0.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marcelofabianov/cappuccino.git",
+                "reference": "ed32232add9d1afe8d46efb3882e81f16f254003"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marcelofabianov/cappuccino/zipball/ed32232add9d1afe8d46efb3882e81f16f254003",
+                "reference": "ed32232add9d1afe8d46efb3882e81f16f254003",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-json": "*",
+                "foroco/php-browser-detection": "^2.3",
+                "illuminate/contracts": "^9.38",
+                "illuminate/http": "^9.38",
+                "illuminate/support": "^9.38",
+                "nesbot/carbon": "^2.62",
+                "php": "8.1.*",
+                "ramsey/uuid": "^4.5"
+            },
+            "require-dev": {
+                "captainhook/captainhook": "^5.11",
+                "ergebnis/composer-normalize": "^2.28",
+                "laradumps/laradumps": "^1.5",
+                "laravel/pint": "^1.2",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5",
+                "pyrech/composer-changelogs": "^1.8",
+                "roave/security-advisories": "dev-latest",
+                "vimeo/psalm": "^4.30"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Cappuccino\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/marcelofabianov/cappuccino/issues",
+                "source": "https://github.com/marcelofabianov/cappuccino/tree/0.14.0"
+            },
+            "time": "2023-01-17T18:21:44+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -10652,12 +10755,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "7f8b8aa1b2ce73eac9828f1a5cb6b794a6453b37"
+                "reference": "3c4c1cc9bc3eed8e57f63780161896336c455de1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/7f8b8aa1b2ce73eac9828f1a5cb6b794a6453b37",
-                "reference": "7f8b8aa1b2ce73eac9828f1a5cb6b794a6453b37",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/3c4c1cc9bc3eed8e57f63780161896336c455de1",
+                "reference": "3c4c1cc9bc3eed8e57f63780161896336c455de1",
                 "shasum": ""
             },
             "conflict": {
@@ -10705,7 +10808,7 @@
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
                 "bytefury/crater": "<6.0.2",
                 "cachethq/cachet": "<2.5.1",
-                "cakephp/cakephp": "<3.10.3|= 1.3.7|>=4,<4.0.10|>=4.1,<4.1.4",
+                "cakephp/cakephp": "<3.10.3|>=4,<4.0.10|>=4.2,<4.2.12|>=4.3,<4.3.11|>=4.4,<4.4.10|= 1.3.7|>=4.1,<4.1.4",
                 "cardgate/magento2": "<2.0.33",
                 "cart2quote/module-quotation": ">=4.1.6,<=4.4.5|>=5,<5.4.4",
                 "cartalyst/sentry": "<=2.1.6",
@@ -11209,7 +11312,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-20T17:04:18+00:00"
+            "time": "2023-01-20T18:04:36+00:00"
         },
         {
             "name": "sebastian/cli-parser",

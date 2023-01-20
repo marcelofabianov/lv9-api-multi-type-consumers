@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Main;
 
 use Illuminate\Support\Facades\Route;
@@ -14,7 +16,7 @@ class MainContainer
 
     public static function httpRoutes(): void
     {
-        # Root
+        // Root
         Route::get('/', fn () => response()->json());
 
         self::httpRoutesApi();
@@ -28,7 +30,7 @@ class MainContainer
                 'api',
                 'auth:api',
             ])->group(function () {
-                # Default Route API
+                // Default Route API
                 Route::get('/', fn () => response()->json([
                     'data' => [],
                     'status' => [
@@ -37,7 +39,7 @@ class MainContainer
                     ],
                 ]));
 
-                #
+                //
             });
     }
 }
