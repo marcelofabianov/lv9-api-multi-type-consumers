@@ -27,7 +27,7 @@ git clone git@github.com:marcelofabianov/lv9-api-consumers.git
 2. Remova o diretório git do projeto
 
 ```bash
-rm -rf .git
+rm -rf .git && git init
 ```
 
 3. Copie os arquivos de ambiente
