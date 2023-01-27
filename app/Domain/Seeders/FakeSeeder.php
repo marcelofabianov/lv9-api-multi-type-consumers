@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace App\Domain\Seeders;
 
 use App\Domain\Models\User;
-use Cappuccino\Id;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\ClientRepository;
+use Latte\Uuid;
 
 class FakeSeeder
 {
     public function run(): void
     {
         $user = User::factory()->createOne([
-            'id' => Id::make(),
+            'id' => Uuid::random()->getValue(),
             'email' => 'me@fake.com',
             'name' => fake()->name,
         ]);

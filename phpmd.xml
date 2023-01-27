@@ -7,18 +7,21 @@
     xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
 >
     <description>
-        Custom ruleset for Venus.
+        Custom ruleset for Laravel.
     </description>
 
-    <exclude-pattern>vendor</exclude-pattern>
     <exclude-pattern>docker</exclude-pattern>
     <exclude-pattern>public</exclude-pattern>
+    <exclude-pattern>node_modules</exclude-pattern>
+    <exclude-pattern>vendor</exclude-pattern>
     <exclude-pattern>app/Main</exclude-pattern>
 
+    <rule ref="rulesets/cleancode.xml">
+        <exclude name="StaticAccess" />
+    </rule>
     <rule ref="rulesets/codesize.xml" />
     <rule ref="rulesets/controversial.xml" />
     <rule ref="rulesets/design.xml" />
-    <rule ref="rulesets/unusedcode.xml" />
     <rule ref="rulesets/naming.xml/LongVariable">
         <properties>
             <property name="maximum">
@@ -33,8 +36,6 @@
             </property>
         </properties>
     </rule>
-    <rule ref="rulesets/cleancode.xml">
-        <exclude name="StaticAccess" />
-    </rule>
 
+    <rule ref="rulesets/unusedcode.xml" />
 </ruleset>

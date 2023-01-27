@@ -1,6 +1,21 @@
 version: '3.7'
 
 services:
+    http:
+        container_name: lv_http
+        image: nginx:latest
+        restart: always
+        environment:
+            TZ: '${TZ:-}'
+        ports:
+            - "8008:80"
+        volumes:
+            - ./public:/var/www/html/public
+            - ./docker/local/http/default.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/local/http/logs:/var/log/nginx
+        networks:
+            - lv_network
+
     app:
         container_name: lv
         build: ./docker/local/php
@@ -16,30 +31,32 @@ services:
         networks:
             - lv_network
         depends_on:
-            - database
-            - queue
-            - cache
+            - app_db
+            - queue_db
+            - cache_db
         ports:
             - "9000:9000"
             - "9003:9003"
             - "9191:9191"
 
-    http:
-        container_name: lv_http
-        image: nginx:latest
+    workers:
+        container_name: lv_workers
+        image: marcelofabianov/php-8.1-fpm-dbs
         restart: always
+        working_dir: /var/www/html
         environment:
             TZ: '${TZ:-}'
-        ports:
-            - "8003:80"
+            XDEBUG_CONFIG: remote_host=host.docker.internal
         volumes:
-            - ./public:/var/www/html/public
-            - ./docker/local/http/default.conf:/etc/nginx/conf.d/default.conf
-            - ./docker/local/http/logs:/var/log/nginx
+            - .:/var/www/html
         networks:
             - lv_network
+        depends_on:
+            - app_db
+            - queue_db
+            - cache_db
 
-    queue:
+    queue_db:
         container_name: lv_queue_db
         image: redis:latest
         restart: always
@@ -52,7 +69,7 @@ services:
         networks:
             - lv_network
 
-    cache:
+    cache_db:
         container_name: lv_cache_db
         image: redis:latest
         restart: always
@@ -65,35 +82,35 @@ services:
         networks:
             - lv_network
 
-    database:
-        container_name: lv_database
+    app_db:
+        container_name: lv_app_db
         image: postgres:15
         restart: always
         environment:
             TZ: '${TZ:-}'
             PGPASSWORD: '${DB_PASSWORD:-secret}'
-            POSTGRES_DB: '${DB_DATABASE:-lv_database}'
+            POSTGRES_DB: '${DB_DATABASE:-lv_app_db}'
             POSTGRES_USER: '${DB_USERNAME:-user}'
             POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
         volumes:
-            - 'lv_database:/var/lib/postgresql/data'
+            - 'lv_app_db:/var/lib/postgresql/data'
         ports:
             - "3002:5432"
         networks:
             - lv_network
 
-    database_testing:
-        container_name: lv_database_testing
+    app_db_testing:
+        container_name: lv_app_db_testing
         image: postgres:15
         restart: always
         environment:
             TZ: '${TZ:-}'
             PGPASSWORD: '${DB_PASSWORD:-secret}'
-            POSTGRES_DB: '${DB_DATABASE:-lv_database_testing}'
+            POSTGRES_DB: '${DB_DATABASE:-lv_app_db_testing}'
             POSTGRES_USER: '${DB_USERNAME:-user}'
             POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
         volumes:
-            - 'lv_database_testing:/var/lib/postgresql/data'
+            - 'lv_app_db_testing:/var/lib/postgresql/data'
         ports:
             - "3009:5432"
         networks:
@@ -104,11 +121,11 @@ networks:
         driver: bridge
 
 volumes:
-    lv_database:
+    lv_app_db:
         driver: local
     lv_queue_db:
         driver: local
     lv_cache_db:
         driver: local
-    lv_database_testing:
+    lv_app_db_testing:
         driver: local

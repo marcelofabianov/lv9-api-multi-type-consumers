@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'lv_database'),
+    'default' => env('DB_CONNECTION', 'lv_app_db'),
 
     /*
     |--------------------------------------------------------------------------
@@ -36,12 +36,12 @@ return [
     */
 
     'connections' => [
-        'lv_database' => [
+        'lv_app_db' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'lv_database'),
+            'host' => env('DB_HOST', 'lv_app_db'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'lv_database'),
+            'database' => env('DB_DATABASE', 'lv_app_db'),
             'username' => env('DB_USERNAME', 'user'),
             'password' => env('DB_PASSWORD', 'secret'),
             'charset' => 'utf8',
@@ -50,12 +50,12 @@ return [
             'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
-        'lv_database_test' => [
+        'lv_app_db_testing' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'lv_database_test'),
+            'host' => env('DB_HOST', 'lv_app_db_testing'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'lv_database_test'),
+            'database' => env('DB_DATABASE', 'lv_app_db_testing'),
             'username' => env('DB_USERNAME', 'user'),
             'password' => env('DB_PASSWORD', 'secret'),
             'charset' => 'utf8',
@@ -101,7 +101,7 @@ return [
 
         'default' => [
             'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'host' => env('REDIS_HOST', 'lv_queue_db'),
             'username' => env('REDIS_USERNAME'),
             'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),
@@ -110,7 +110,7 @@ return [
 
         'cache' => [
             'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'host' => env('REDIS_HOST', 'lv_cache_db'),
             'username' => env('REDIS_USERNAME'),
             'password' => env('REDIS_PASSWORD'),
             'port' => env('REDIS_PORT', '6379'),

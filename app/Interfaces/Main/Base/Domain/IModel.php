@@ -7,10 +7,13 @@ namespace App\Interfaces\Main\Base\Domain;
 use Carbon\CarbonInterface;
 
 /**
- * @property string $id
- * @property CarbonInterface $created_at
- * @property CarbonInterface $updated_at
- * @property ?CarbonInterface $deleted_at
+ * @property string $uuid
+ * @property CarbonInterface $createdAt
+ * @property CarbonInterface $updatedAt
+ * @property CarbonInterface|null $deletedAt
+ * @method IModel newInstance()
+ * @method IModel fill(array $attributes)
+ * @method IModel find(string $uuid)
  */
 interface IModel
 {
